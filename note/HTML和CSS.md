@@ -276,5 +276,195 @@
 </body>
 </html>
 ```
-## CSS
-    
+## CSS技术 记得看文档
+>css是一种标记行语言  
+
+### CSS语法规则
+P{
+    font-size:800px;
+}
+p是选择器，font-size是属性，80px是值
+>选择器决定受CSS样式影响的HTML元素(标签)  
+>属性（property）要改的样式名  
+>多个属性声明是要';'分开
+>**CSS的注释 /* */**
+### CSS的用法
+>通过style使用
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!--
+        需求：分别定义两个div、span标签，分别修改每个div标签的格式：边框为1个像素，实线：红色
+
+    -->
+    <div style="border: 1px solid;border-color: #3b1010">
+        div标签1
+    </div>
+    <div>
+
+    </div>
+    <span>
+
+    </span>
+</body>
+</html>
+```
+>通过style使用在head标签中定义
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        div{
+            border: 1px solid red;
+        }
+    </style>
+</head> 
+<body>
+    <!--
+        需求：分别定义两个div、span标签，分别修改每个div标签的格式：边框为1个像素，实线：红色
+
+    -->
+    <div >
+        div标签1
+    </div>
+</body>
+</html>
+```
+>把CSS样式写出一个单独的CSS文件，在通过Link标签引用就可以
+>在1.css定义
+```html
+div{
+    border: 1px solid red;
+}
+```
+>在1-CSS.html中引用
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--link标签用来引用css代码-->
+    <<!--rel是关系，stylesheet是表示调用的css文件-->
+    <link rel="stylesheet" type="text/css" href="1.css">
+</head> 
+<body>
+    <!--
+        需求：分别定义两个div、span标签，分别修改每个div标签的格式：边框为1个像素，实线：红色
+
+    -->
+    <div >
+        div标签1
+    </div>
+</body>
+</html>
+```
+### 标签名的选择器
+标签名{
+    属性：值
+}
+标签名可以选择哪些标签使用该样式
+### id选择器
+#id 属性值{
+    属性:值
+}
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #id001{
+            color: blue;
+            font-size: 30px;
+            border: 1px yellow solid ;
+        }
+        #id002{
+            color: red;
+            font-size: 20px;
+            border: 5px blue dotted;
+        }
+    </style>
+</head>
+<body>
+    <div id="id001">div1</div>
+    <div id="id002">div2</div>
+</body>
+</html>
+```
+### class类型选择器
+.class属性值{
+    属性：值
+}
+```html
+<!DOCTYPE html>
+<html lang="zh_CN">
+<head>
+    <meta charset="UTF-8">
+    <title>class属性</title>
+    <style>
+        .class01{
+            color: blue;
+            font-size: 30px;
+            border: 1px yellow solid;
+        }
+        .class02{
+            color: grey;
+            font-size: 26px;
+            border: 1px red solid
+        ;
+        }
+    </style>
+</head>
+<body>
+    <div class="class01">
+        div标签
+    </div>
+    <div class="class02">
+        div标签
+    </div>
+
+</body>
+</html>
+```
+### 组合选择器
+选择器1，选择器2，选择器n{
+
+    属性：值
+}
+```html
+<!DOCTYPE html>
+<html lang="zn_CH">
+<head>
+    <meta charset="UTF-8">
+    <title>组合选择器</title>
+    <style type="text/css">
+        .class01,#id01{
+            color: blue;
+            font-size: 20px;
+            border: 1px yellow solid;
+        }
+    </style>
+</head>
+<body>
+    <div class="class01">
+        div
+    </div>
+    <span id="id01">
+        span
+    </span>
+</body>
+</html>
+```
+可以让多个选择器公用一个代码
+### CSS常用样式
+>
