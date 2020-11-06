@@ -6,7 +6,7 @@
 > 表现：一般指的是在网页上展现的形式。比如颜色。。。一般使用css实现  
 > 行为：指的是页面上的元素与输入设备交互的响应。一般使用javascript。  
  
-### html的结构
+## html的结构
 ``` html
 <!DOCTYPE html><!-- 约束，声明-->
 <html lang="zh_CN"><!--html标签，表示html的开始-->
@@ -55,6 +55,226 @@
 ### img标签
 
 ### **表格tab（重点）**
+```html
+<!DOCTYPE html>
+<html lang="zh_CN">
+<head>
+    <meta charset="UTF-8">
+    <title>表格标签</title>
+</head>
+<body>
+<!--
+    需求1：做一个带代表头的，三行，三列的表格，并显示边框
+    需求2：修改表格的宽度。高度，表格的对对齐方式，单元格间距
+    cellspacing 设置单元格间距
 
+-->
+    <table border = "1" width = "300" height = '300' align="center" cellspacing="0">
+        <tr>
+            <th >1.1</th>
+            <th>1.2</th> <!--表头标签-->
+            <th>1.3</th>
+        </tr>
+        <tr>
+            <td>2.1</td>
+            <td>2.2</td>
+            <td>2.3</td>
+        </tr>
+        <tr>
+            <td>3.1</td>
+            <td>3.2</td>
+            <td>3.3</td>
+        </tr>
+    </table>
+</body>
+</html>
+```
+### 表格的跨行、列
+```html
+<!DOCTYPE html>
+<html lang="zh_CN">
+<head>
+    <meta charset="UTF-8">
+    <title>表格的跨行跨列</title>
+</head>
+<body>
+    <!--
+        需求1：
+            新建一个五行，五列的表格，
+            第一行，第一列的单元格要跨两列
+            第二行第一列的单元格要跨两行
+            第四行第四列的单元格跨两列两行
+         colpan 属性设置跨列
+         rowspan 属性设置跨行
+    -->
+    <table width="500" height = '500' cellspacing="0" border="1">
+        <tr>
+            <td colspan="2">1.1</td>
+            <td>1.3</td>
+            <td>1.4</td>
+            <td>1.5</td>
+        </tr>
+        <tr>
+            <td rowspan="2">2.1</td>
+            <td>2.2</td>
+            <td>2.3</td>
+            <td>2.4</td>
+            <td>2.5</td>
+        </tr>
+        <tr>
+            <td>3.2</td>
+            <td>3.3</td>
+            <td>3.4</td>
+            <td>3.5</td>
+        </tr>
+        <tr>
+            <td>4.1</td>
+            <td>4.2</td>
+            <td>4.3</td>
+            <td colspan="2" rowspan="2">4.4</td>
 
+        </tr>
+        <tr>
+            <td>5.1</td>
+            <td>5.2</td>
+            <td>5.3</td>
+           
+        </tr>
+
+    </table>
+</body>
+</html>
+```
+### iframe(内嵌窗口)
+```html
+<!DOCTYPE html>
+<html lang="zh_CN">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    我是一个单独的完整的页面<br/><br/>
+    <!--开辟一个小区域，显示一个单独页面-->
+    <!--
+        iframe与a标签的配合使用
+            1.在iframe标签中使用name属性定义一个名称
+            2 在a标签中target属性设置iframe的name值
+    -->
+    <iframe src="表格的跨行、列.html" width="700" height="600" name="i">
+        <br/>
+        <br/>
+
+    </iframe>
+    <ul>
+        <li><a href="Hello.html" target="i">Hello</a></li>
+    </ul>
+</body>
+</html>
+```
+
+### **表单标签重点**
+```html
+<!DOCTYPE html>
+<html lang="zh_CN">
+<head>
+    <meta charset="UTF-8">
+    <title>表单的显示</title>
+</head>
+<body>
+    <!--表单用来收集用户信息的所有元素集合，然后把这些信息发送个服务器-->
+    <!--x
+        需求：
+           1.创建一个个人信息注册的表单界面。包含用户名，密码，确认密码。心别（单选）
+                兴趣爱好（多选），国籍（下拉列表）
+                影藏域，自我评价（多行文本域）。重置，提交。
+
+        -->
+    <!--form标签就是表单
+        input  type = text 是文本输入框  value是默认值
+               type = password 是密码输入框 value是默认值
+               type = radio 单选框  name可以分组，防止多选 checked="checked"表示默认选重
+               type="checkbox" 复选框
+               type = "reset" 是重置
+               type="submit" 提交按钮
+               type="button" 按钮
+               type="file" 文件上传域
+               type = hidde 隐藏域  当我们要发送某些信息，但是不需要用户参与，就可以使用它（提交的时候可以发送个服务器）
+        <select> 下拉列表框 option是选项  selected="selected"默认选中
+
+        textarea 表示多行文本输入框  （默认值在起始标签和结束标签之间）
+               rows 属性表示可以显示几行的高度
+               cols 属性表示显示几行的狂赌
+
+            -->
+
+    <form>
+        <table><!--表单的格式化-->
+            <tr>
+                <td>用户名称：</td>
+                <td><input type="text" value="默认值"/><br/></td>
+            </tr>
+        </table>
+        用户密码：<input type="password" value="abc" maxlength="11"/><br>
+        确认密码：<input type="password" value="abc"/><br>
+        性别：<input type="radio" name="sex" checked="checked"/>男<input type="radio" name="sex"/>女<br>
+        兴趣爱好：<input type="checkbox"/>java<input type="checkbox"/>c++<br>
+        国籍：<select>
+                <option>请选择你的国籍</option>
+                <option selected="selected">中国</option>
+                <option>每个</option>
+            </select><br>
+        自我评价:<textarea rows="10" cols="20">我才是默认值</textarea><br>
+        <input type="reset" value="重值"><br>
+        <input type="submit"><br>
+        <input type="button"><br>
+        <input type="file">
+        <input type = hidden>
+    </form>
+</body>
+</html>
+```
+### 表单的格式化
+> 在表单里面使用table即课
+### 表单提交个服务器
+```html
+  form标签的表单标签
+                action属性 是设置提交的地址
+                method属性设置提交的方式GET（默认值）或者POST
+            表达提交的时候没有提交上去的原因：
+                1.表单项没有name属性值
+                2.单选、复选（下拉列表中的option标签）都需要添加value属性，以便发送给服务器
+                3.表单项不在form之中。
+            GET请求的特点是：
+                1.浏览器地址栏中的地址是：action属性[+？+请求的参数]
+                    请求参数的格式是：name = value & name = value
+                2.不安全，所有信息都可见（地址栏中）
+                3.他有数据的长度限制
+            POST请求的特点是：
+                1.浏览器地址栏中只有action属性值
+                2.相对于GET请求安全
+                3.理论上没有数据长度的限制
+```
+### 其他标签
+>div span p
+```html
+<!DOCTYPE html>
+<html lang="zh_CN">
+<head>
+    <meta charset="UTF-8">
+    <title>其他标签</title>
+</head>
+<body>
+    <!--
+        需求：div、span、p标签的演示
+    -->
+    <!--
+    div默认独占一行
+    span他的长度是封装数据的长度
+    p段落标签  默认会在段落的上方或者下方各空出一行来（如果有则不在空）
+    -->
+</body>
+</html>
+```
+## CSS
     

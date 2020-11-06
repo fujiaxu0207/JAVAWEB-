@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="zh_CN">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    我是一个单独的完整的页面<br/><br/>
+    <!--开辟一个小区域，显示一个单独页面-->
+    <!--
+        iframe与a标签的配合使用
+            1.在iframe标签中使用name属性定义一个名称
+            2 在a标签中target属性设置iframe的name值
+    -->
+    <iframe src="表格的跨行、列.html" width="700" height="600" name="i">
+        <br/>
+        <br/>
+
+    </iframe>
+    <ul>
+        <li><a href="Hello.html" target="i">Hello</a></li>
+    </ul>
+</body>
+</html>
